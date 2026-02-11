@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -206,6 +207,436 @@
             left: 0;
         }
 
+        /* Admin Login Button */
+        .admin-login-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+            transition: all 0.3s;
+        }
+
+        .admin-login-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.7);
+        }
+
+        /* Password Modal */
+        .password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .password-modal.active {
+            display: flex;
+        }
+
+        .password-box {
+            background: rgba(30, 39, 73, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .password-box h2 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .password-box p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .password-box input {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 15px;
+            background: rgba(10, 14, 39, 0.5);
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .password-box input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        .modal-btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .modal-btn-secondary {
+            background: rgba(148, 163, 184, 0.2);
+            color: white;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .error-text {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9998;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-header {
+            background: rgba(30, 39, 73, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .admin-header h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .admin-close-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #eb3941 0%, #f5576c 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        .admin-close-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(235, 57, 65, 0.5);
+        }
+
+        /* Admin Form */
+        .admin-form-section {
+            background: rgba(30, 39, 73, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .admin-form-section h2 {
+            color: #f093fb;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #e2e8f0;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            background: rgba(10, 14, 39, 0.5);
+            color: white;
+            font-size: 1rem;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .features-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .features-input-wrapper input {
+            flex: 1;
+        }
+
+        .features-input-wrapper button {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 10px;
+        }
+
+        .feature-item span {
+            flex: 1;
+            color: #e2e8f0;
+        }
+
+        .feature-item button {
+            padding: 0.5rem 1rem;
+            background: #ef4444;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .form-actions button {
+            flex: 1;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        .btn-save {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+        }
+
+        .btn-save:hover,
+        .btn-reset:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Products Management */
+        .products-management {
+            background: rgba(30, 39, 73, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .products-management h2 {
+            color: #f093fb;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .products-admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-admin-card {
+            background: rgba(10, 14, 39, 0.7);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .product-admin-card:hover {
+            transform: translateY(-5px);
+            border-color: #6366f1;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .product-admin-card h3 {
+            color: white;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .product-admin-card .category-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-admin-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-admin-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .product-admin-actions button {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+        }
+
+        .btn-delete {
+            background: linear-gradient(135deg, #eb3941 0%, #f5576c 100%);
+            color: white;
+        }
+
         /* Hero Section */
         .hero {
             text-align: center;
@@ -245,7 +676,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Purchase Info Box */
+        /* Purchase Info */
         .purchase-info {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
             border: 2px solid rgba(99, 102, 241, 0.4);
@@ -256,12 +687,6 @@
             text-align: center;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
         }
 
         .purchase-info h3 {
@@ -269,27 +694,12 @@
             font-weight: 800;
             color: var(--accent);
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .purchase-info h3 i {
-            font-size: 2.5rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .purchase-info p {
             font-size: 1.3rem;
             color: var(--text-secondary);
             line-height: 2;
-            margin-bottom: 1rem;
         }
 
         .purchase-info .steps {
@@ -322,7 +732,6 @@
         .step h4 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            color: var(--text-primary);
         }
 
         .step p {
@@ -462,12 +871,6 @@
             font-size: 0.95rem;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             z-index: 10;
-            animation: badgePulse 2s ease-in-out infinite;
-        }
-
-        @keyframes badgePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
 
         .product-content {
@@ -573,10 +976,6 @@
             box-shadow: 0 15px 50px rgba(99, 102, 241, 0.7);
         }
 
-        .buy-btn:active {
-            transform: scale(1.05);
-        }
-
         .buy-btn i {
             font-size: 1.5rem;
             position: relative;
@@ -667,17 +1066,26 @@
             position: fixed;
             top: 100px;
             right: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
             color: white;
-            padding: 2rem 3rem;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 1.3rem;
-            z-index: 10000;
-            box-shadow: 0 15px 60px rgba(0,0,0,0.5);
-            animation: slideInRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            max-width: 450px;
+            font-weight: 700;
+            z-index: 10001;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            animation: slideInRight 0.5s ease-out;
+            display: none;
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #eb3941 0%, #f5576c 100%);
+        }
+
+        .notification.show {
+            display: block;
         }
 
         @keyframes slideInRight {
@@ -691,29 +1099,17 @@
             }
         }
 
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(500px);
-                opacity: 0;
-            }
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.3rem; }
             .purchase-info { padding: 1.5rem; }
-            .purchase-info h3 { font-size: 1.5rem; }
-            .purchase-info p { font-size: 1.1rem; }
             .products-grid { grid-template-columns: 1fr; gap: 2rem; }
             .nav-links { flex-direction: column; gap: 1rem; }
             .category-filters { gap: 1rem; }
             .category-btn { padding: 0.8rem 2rem; font-size: 1rem; }
-            .notification { right: 20px; top: 80px; padding: 1.5rem; font-size: 1.1rem; max-width: calc(100% - 40px); }
+            .notification { right: 20px; top: 80px; }
+            .admin-login-btn { bottom: 15px; left: 15px; width: 50px; height: 50px; }
         }
     </style>
 </head>
@@ -725,6 +1121,107 @@
         <div class="shape shape3"></div>
     </div>
 
+    <!-- Admin Login Button -->
+    <button class="admin-login-btn" onclick="openPasswordModal()">
+        <i class="fas fa-lock"></i>
+    </button>
+
+    <!-- Password Modal -->
+    <div class="password-modal" id="passwordModal">
+        <div class="password-box">
+            <h2><i class="fas fa-shield-alt"></i> تسجيل دخول المدير</h2>
+            <p>أدخل كلمة المرور (1-20)</p>
+            <input type="password" id="passwordInput" placeholder="كلمة المرور">
+            <p class="error-text" id="errorText">كلمة مرور خاطئة!</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="checkPassword()">
+                    <i class="fas fa-sign-in-alt"></i> دخول
+                </button>
+                <button class="modal-btn modal-btn-secondary" onclick="closePasswordModal()">
+                    <i class="fas fa-times"></i> إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1><i class="fas fa-cogs"></i> لوحة التحكم</h1>
+                <button class="admin-close-btn" onclick="closeAdminPanel()">
+                    <i class="fas fa-times"></i> إغلاق
+                </button>
+            </div>
+
+            <!-- Add Product Form -->
+            <div class="admin-form-section">
+                <h2><i class="fas fa-plus-circle"></i> إضافة / تعديل منتج</h2>
+                <form id="productForm" onsubmit="saveProduct(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>عنوان المنتج</label>
+                            <input type="text" id="productTitle" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>التصنيف</label>
+                            <select id="productCategory" required>
+                                <option value="">اختر التصنيف</option>
+                                <option value="data">الداتا</option>
+                                <option value="tools">البرامج</option>
+                                <option value="hacking">كورسات الاختراق</option>
+                                <option value="programming">كورسات البرمجة</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>الشارة</label>
+                            <input type="text" id="productBadge" placeholder="مثال: داتا حصرية">
+                        </div>
+
+                        <div class="form-group">
+                            <label>رابط الصورة</label>
+                            <input type="url" id="productImage" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>الوصف</label>
+                            <textarea id="productDescription" required></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>المميزات</label>
+                            <div class="features-input-wrapper">
+                                <input type="text" id="featureInput" placeholder="أضف ميزة...">
+                                <button type="button" onclick="addFeature()">
+                                    <i class="fas fa-plus"></i> إضافة
+                                </button>
+                            </div>
+                            <div class="features-list" id="featuresList"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">
+                            <i class="fas fa-save"></i> حفظ المنتج
+                        </button>
+                        <button type="button" class="btn-reset" onclick="resetForm()">
+                            <i class="fas fa-redo"></i> مسح الحقول
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Products Management -->
+            <div class="products-management">
+                <h2><i class="fas fa-box-open"></i> إدارة المنتجات</h2>
+                <div class="products-admin-grid" id="productsAdminGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
     <header>
         <div class="container">
             <nav>
@@ -733,9 +1230,9 @@
                     متجر البرامج الاحترافي
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="#products"><i class="fas fa-box"></i> المنتجات</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
                 </ul>
             </nav>
         </div>
@@ -790,189 +1287,7 @@
                 </button>
             </div>
 
-            <div class="products-grid" id="products">
-                <!-- Product 1: Data -->
-                <div class="product-card" data-category="data">
-                    <div class="product-image-container">
-                        <div class="product-badge">داتا حصرية</div>
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="قواعد بيانات" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <i class="fas fa-database"></i> قواعد البيانات
-                        </div>
-                        <h3 class="product-title">قواعد بيانات ضخمة ومحدثة</h3>
-                        <p class="product-description">مجموعة ضخمة من قواعد البيانات المتنوعة والمحدثة باستمرار لجميع الأغراض المهنية</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> بيانات محدثة شهرياً</li>
-                            <li><i class="fas fa-check-circle"></i> تنسيقات متعددة (Excel, CSV, JSON)</li>
-                            <li><i class="fas fa-check-circle"></i> دعم فني مستمر</li>
-                        </ul>
-                        <div class="product-footer">
-                            <button class="buy-btn" onclick="buyProductMessenger('قواعد بيانات ضخمة ومحدثة')">
-                                <i class="fab fa-facebook-messenger"></i>
-                                <span>اشتري الآن</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2: Cellebrite UFED -->
-                <div class="product-card" data-category="tools">
-                    <div class="product-image-container">
-                        <div class="product-badge">الأكثر مبيعاً</div>
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Cellebrite UFED" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <i class="fas fa-mobile-alt"></i> برامج احترافية
-                        </div>
-                        <h3 class="product-title">Cellebrite UFED Professional</h3>
-                        <p class="product-description">أداة احترافية متقدمة لفحص واستخراج بيانات الأجهزة المحمولة والتابلت بأعلى كفاءة وسرعة</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> دعم جميع أنواع الأجهزة</li>
-                            <li><i class="fas fa-check-circle"></i> استخراج شامل للبيانات</li>
-                            <li><i class="fas fa-check-circle"></i> تحديثات دورية مجانية</li>
-                        </ul>
-                        <div class="product-footer">
-                            <button class="buy-btn" onclick="buyProductMessenger('Cellebrite UFED Professional')">
-                                <i class="fab fa-facebook-messenger"></i>
-                                <span>اشتري الآن</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 3: Course 1 -->
-                <div class="product-card" data-category="hacking">
-                    <div class="product-image-container">
-                        <div class="product-badge">كورس</div>
-                        <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&q=80" alt="دورة اختراق المواقع" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <i class="fas fa-graduation-cap"></i> كورسات تعليمية
-                        </div>
-                        <h3 class="product-title">كورس اختراق مواقع الويب</h3>
-                        <p class="product-description">تعلم اختراق المواقع من الصفر حتى الاحتراف مع أمثلة عملية وتطبيقات واقعية</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> 34 درس شامل ومتدرج</li>
-                            <li><i class="fas fa-check-circle"></i> شرح بالعربي بجودة عالية</li>
-                            <li><i class="fas fa-check-circle"></i> أمثلة عملية وتطبيقية</li>
-                        </ul>
-                        <div class="product-footer">
-                            <button class="buy-btn" onclick="buyProductMessenger('كورس اختراق مواقع الويب - 34 درس')">
-                                <i class="fab fa-facebook-messenger"></i>
-                                <span>اشتري الآن</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4: Course 2 -->
-                <div class="product-card" data-category="hacking">
-                    <div class="product-image-container">
-                        <div class="product-badge">كورس</div>
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Craxsrat" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <i class="fas fa-graduation-cap"></i> كورسات تعليمية
-                        </div>
-                        <h3 class="product-title">Craxsrat - شرح كامل</h3>
-                        <p class="product-description">دورة تعليمية متكاملة لأداة Craxsrat القوية للتحكم عن بعد في الأجهزة</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> 10 دروس احترافية</li>
-                            <li><i class="fas fa-check-circle"></i> شرح واجهة البرنامج بالتفصيل</li>
-                            <li><i class="fas fa-check-circle"></i> أمثلة عملية متعددة</li>
-                        </ul>
-                        <div class="product-footer">
-                            <button class="buy-btn" onclick="buyProductMessenger('Craxsrat - شرح كامل - 10 دروس')">
-                                <i class="fab fa-facebook-messenger"></i>
-                                <span>اشتري الآن</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5: Course 3 -->
-                <div class="product-card" data-category="programming">
-                    <div class="product-image-container">
-                        <div class="product-badge">كورس</div>
-                        <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&q=80" alt="كورس Termux" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <i class="fas fa-graduation-cap"></i> كورسات تعليمية
-                        </div>
-                        <h3 class="product-title">كورس تعلم الهاك من الهاتف - Termux</h3>
-                        <p class="product-description">دورة شاملة لتعلم الاختراق الأخلاقي باستخدام Termux على هاتفك الأندرويد</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> 63 درس مكثف ومفصل</li>
-                            <li><i class="fas fa-check-circle"></i> تطبيقات عملية متنوعة</li>
-                            <li><i class="fas fa-check-circle"></i> من الصفر للاحتراف</li>
-                        </ul>
-                        <div class="product-footer">
-                            <button class="buy-btn" onclick="buyProductMessenger('كورس تعلم الهاك من الهاتف - Termux - 63 درس')">
-                                <i class="fab fa-facebook-messenger"></i>
-                                <span>اشتري الآن</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 6: Course 4 -->
-                <div class="product-card" data-category="hacking">
-                    <div class="product-image-container">
-                        <div class="product-badge">كورس</div>
-                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&q=80" alt="اختبار اختراق الأندرويد" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <i class="fas fa-graduation-cap"></i> كورسات تعليمية
-                        </div>
-                        <h3 class="product-title">دورة اختبار اختراق تطبيقات الأندرويد</h3>
-                        <p class="product-description">تعلم كيفية فحص واكتشاف الثغرات في تطبيقات الأندرويد بشكل احترافي</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> 63 درس شامل ومتقدم</li>
-                            <li><i class="fas fa-check-circle"></i> مستوى متوسط إلى متقدم</li>
-                            <li><i class="fas fa-check-circle"></i> أدوات احترافية معتمدة</li>
-                        </ul>
-                        <div class="product-footer">
-                            <button class="buy-btn" onclick="buyProductMessenger('دورة اختبار اختراق تطبيقات الأندرويد - 63 درس')">
-                                <i class="fab fa-facebook-messenger"></i>
-                                <span>اشتري الآن</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 7: Course 5 -->
-                <div class="product-card" data-category="programming">
-                    <div class="product-image-container">
-                        <div class="product-badge">كورس</div>
-                        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80" alt="دورة الهكر الأخلاقي" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <i class="fas fa-graduation-cap"></i> كورسات تعليمية
-                        </div>
-                        <h3 class="product-title">دورة الهكر الأخلاقي الشاملة</h3>
-                        <p class="product-description">ابدأ رحلتك في عالم الأمن السيبراني من الصفر! تعلم Python والهاكينج الأخلاقي</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check-circle"></i> 147 درس للمبتدئين</li>
-                            <li><i class="fas fa-check-circle"></i> تعلم Python من الصفر</li>
-                            <li><i class="fas fa-check-circle"></i> محتوى CEH معتمد</li>
-                        </ul>
-                        <div class="product-footer">
-                            <button class="buy-btn" onclick="buyProductMessenger('دورة الهكر الأخلاقي الشاملة - 147 درس')">
-                                <i class="fab fa-facebook-messenger"></i>
-                                <span>اشتري الآن</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="products-grid" id="products"></div>
         </div>
     </section>
 
@@ -1009,37 +1324,330 @@
         </div>
     </footer>
 
-    <script>
-        // Category Filter
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        const productCards = document.querySelectorAll('.product-card');
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
 
-        categoryBtns.forEach(btn => {
+    <script>
+        // Global Variables
+        let products = [];
+        let currentFeatures = [];
+        let editingIndex = -1;
+        let isAdmin = false;
+
+        // Initialize
+        function init() {
+            loadProducts();
+            renderProducts();
+            renderAdminProducts();
+        }
+
+        // Password Modal
+        function openPasswordModal() {
+            document.getElementById('passwordModal').classList.add('active');
+            document.getElementById('passwordInput').focus();
+        }
+
+        function closePasswordModal() {
+            document.getElementById('passwordModal').classList.remove('active');
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('errorText').style.display = 'none';
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const validPasswords = Array.from({length: 20}, (_, i) => (i + 1).toString());
+            
+            if (validPasswords.includes(password)) {
+                isAdmin = true;
+                closePasswordModal();
+                openAdminPanel();
+            } else {
+                document.getElementById('errorText').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Admin Panel
+        function openAdminPanel() {
+            document.getElementById('adminPanel').classList.add('active');
+            renderAdminProducts();
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('adminPanel').classList.remove('active');
+            isAdmin = false;
+            resetForm();
+        }
+
+        // Password Enter Key
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && document.getElementById('passwordModal').classList.contains('active')) {
+                checkPassword();
+            }
+        });
+
+        // Features Management
+        function addFeature() {
+            const input = document.getElementById('featureInput');
+            const feature = input.value.trim();
+            
+            if (feature) {
+                currentFeatures.push(feature);
+                input.value = '';
+                renderFeatures();
+            }
+        }
+
+        function removeFeature(index) {
+            currentFeatures.splice(index, 1);
+            renderFeatures();
+        }
+
+        function renderFeatures() {
+            const list = document.getElementById('featuresList');
+            list.innerHTML = currentFeatures.map((f, i) => `
+                <div class="feature-item">
+                    <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                    <span>${f}</span>
+                    <button type="button" onclick="removeFeature(${i})">
+                        <i class="fas fa-times"></i> حذف
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Product Management
+        function saveProduct(event) {
+            event.preventDefault();
+            
+            const product = {
+                title: document.getElementById('productTitle').value,
+                category: document.getElementById('productCategory').value,
+                badge: document.getElementById('productBadge').value,
+                image: document.getElementById('productImage').value,
+                description: document.getElementById('productDescription').value,
+                features: [...currentFeatures]
+            };
+
+            if (editingIndex >= 0) {
+                products[editingIndex] = product;
+                editingIndex = -1;
+            } else {
+                products.push(product);
+            }
+
+            saveToLocalStorage();
+            renderProducts();
+            renderAdminProducts();
+            resetForm();
+            showNotification('تم حفظ المنتج بنجاح! التغييرات ظاهرة مباشرة', 'success');
+        }
+
+        function resetForm() {
+            document.getElementById('productForm').reset();
+            currentFeatures = [];
+            editingIndex = -1;
+            renderFeatures();
+        }
+
+        function editProduct(index) {
+            const product = products[index];
+            
+            document.getElementById('productTitle').value = product.title;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productBadge').value = product.badge;
+            document.getElementById('productImage').value = product.image;
+            document.getElementById('productDescription').value = product.description;
+            currentFeatures = [...product.features];
+            editingIndex = index;
+            
+            renderFeatures();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function deleteProduct(index) {
+            if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+                products.splice(index, 1);
+                saveToLocalStorage();
+                renderProducts();
+                renderAdminProducts();
+                showNotification('تم حذف المنتج بنجاح!', 'success');
+            }
+        }
+
+        // Render Products (Main Site)
+        function renderProducts() {
+            const grid = document.getElementById('products');
+            
+            if (products.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: #94a3b8; padding: 3rem; grid-column: 1/-1;">لا توجد منتجات حالياً</p>';
+                return;
+            }
+
+            grid.innerHTML = products.map(product => `
+                <div class="product-card" data-category="${product.category}">
+                    <div class="product-image-container">
+                        <div class="product-badge">${product.badge}</div>
+                        <img src="${product.image}" alt="${product.title}" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">
+                            <i class="fas fa-${getCategoryIcon(product.category)}"></i> ${getCategoryName(product.category)}
+                        </div>
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <ul class="product-features">
+                            ${product.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}
+                        </ul>
+                        <div class="product-footer">
+                            <button class="buy-btn" onclick="buyProductMessenger('${product.title}')">
+                                <i class="fab fa-facebook-messenger"></i>
+                                <span>اشتري الآن</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Admin Products
+        function renderAdminProducts() {
+            const grid = document.getElementById('productsAdminGrid');
+            
+            if (products.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: #94a3b8; padding: 2rem; grid-column: 1/-1;">لا توجد منتجات</p>';
+                return;
+            }
+
+            grid.innerHTML = products.map((product, index) => `
+                <div class="product-admin-card">
+                    <span class="category-tag">${getCategoryName(product.category)}</span>
+                    <h3>${product.title}</h3>
+                    <p>${product.description.substring(0, 80)}...</p>
+                    <div class="product-admin-actions">
+                        <button class="btn-edit" onclick="editProduct(${index})">
+                            <i class="fas fa-edit"></i> تعديل
+                        </button>
+                        <button class="btn-delete" onclick="deleteProduct(${index})">
+                            <i class="fas fa-trash"></i> حذف
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Helper Functions
+        function getCategoryName(category) {
+            const names = {
+                'data': 'الداتا',
+                'tools': 'البرامج',
+                'hacking': 'كورسات الاختراق',
+                'programming': 'كورسات البرمجة'
+            };
+            return names[category] || category;
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                'data': 'database',
+                'tools': 'tools',
+                'hacking': 'graduation-cap',
+                'programming': 'code'
+            };
+            return icons[category] || 'box';
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem('storeProducts', JSON.stringify(products));
+        }
+
+        function loadProducts() {
+            const saved = localStorage.getItem('storeProducts');
+            if (saved) {
+                products = JSON.parse(saved);
+            } else {
+                // Default Products - ALL PRODUCTS FROM CODE 1
+                products = [
+                    {
+                        title: 'قواعد بيانات ضخمة ومحدثة',
+                        category: 'data',
+                        badge: 'داتا حصرية',
+                        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
+                        description: 'مجموعة ضخمة من قواعد البيانات المتنوعة والمحدثة باستمرار لجميع الأغراض المهنية',
+                        features: ['بيانات محدثة شهرياً', 'تنسيقات متعددة (Excel, CSV, JSON)', 'دعم فني مستمر']
+                    },
+                    {
+                        title: 'Cellebrite UFED Professional',
+                        category: 'tools',
+                        badge: 'الأكثر مبيعاً',
+                        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80',
+                        description: 'أداة احترافية متقدمة لفحص واستخراج بيانات الأجهزة المحمولة والتابلت بأعلى كفاءة وسرعة',
+                        features: ['دعم جميع أنواع الأجهزة', 'استخراج شامل للبيانات', 'تحديثات دورية مجانية']
+                    },
+                    {
+                        title: 'كورس اختراق مواقع الويب',
+                        category: 'hacking',
+                        badge: 'كورس',
+                        image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800&q=80',
+                        description: 'تعلم اختراق المواقع من الصفر حتى الاحتراف مع أمثلة عملية وتطبيقات واقعية',
+                        features: ['34 درس شامل ومتدرج', 'شرح بالعربي بجودة عالية', 'أمثلة عملية وتطبيقية']
+                    },
+                    {
+                        title: 'Craxsrat - شرح كامل',
+                        category: 'hacking',
+                        badge: 'كورس',
+                        image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
+                        description: 'دورة تعليمية متكاملة لأداة Craxsrat القوية للتحكم عن بعد في الأجهزة',
+                        features: ['10 دروس احترافية', 'شرح واجهة البرنامج بالتفصيل', 'أمثلة عملية متعددة']
+                    },
+                    {
+                        title: 'كورس تعلم الهاك من الهاتف - Termux',
+                        category: 'programming',
+                        badge: 'كورس',
+                        image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&q=80',
+                        description: 'دورة شاملة لتعلم الاختراق الأخلاقي باستخدام Termux على هاتفك الأندرويد',
+                        features: ['63 درس مكثف ومفصل', 'تطبيقات عملية متنوعة', 'من الصفر للاحتراف']
+                    },
+                    {
+                        title: 'دورة اختبار اختراق تطبيقات الأندرويد',
+                        category: 'hacking',
+                        badge: 'كورس',
+                        image: 'https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&q=80',
+                        description: 'تعلم كيفية فحص واكتشاف الثغرات في تطبيقات الأندرويد بشكل احترافي',
+                        features: ['63 درس شامل ومتقدم', 'مستوى متوسط إلى متقدم', 'أدوات احترافية معتمدة']
+                    },
+                    {
+                        title: 'دورة الهكر الأخلاقي الشاملة',
+                        category: 'programming',
+                        badge: 'كورس',
+                        image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80',
+                        description: 'ابدأ رحلتك في عالم الأمن السيبراني من الصفر! تعلم Python والهاكينج الأخلاقي',
+                        features: ['147 درس للمبتدئين', 'تعلم Python من الصفر', 'محتوى CEH معتمد']
+                    }
+                ];
+                saveToLocalStorage();
+            }
+        }
+
+        // Category Filter
+        document.querySelectorAll('.category-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const category = btn.dataset.category;
                 
-                categoryBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                productCards.forEach(card => {
+                document.querySelectorAll('.product-card').forEach(card => {
                     if (category === 'all' || card.dataset.category === category) {
                         card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 10);
                     } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
+                        card.style.display = 'none';
                     }
                 });
             });
         });
 
-        // Buy Product with Messenger
+        // Buy Product
         function buyProductMessenger(productName) {
             const message = `مرحباً! 👋
 
@@ -1050,10 +1658,9 @@
 أرجو التواصل معي لإتمام عملية الشراء.
 شكراً! 🙏`;
 
-            // Copy message to clipboard
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(message).then(() => {
-                    showNotification('✅ تم نسخ الرسالة! الصقها في الماسنجر');
+                    showNotification('✅ تم نسخ الرسالة! الصقها في الماسنجر', 'success');
                 }).catch(() => {
                     fallbackCopyText(message);
                 });
@@ -1061,13 +1668,11 @@
                 fallbackCopyText(message);
             }
             
-            // Open Messenger
             setTimeout(() => {
                 window.open('https://www.facebook.com/messages/t/sherif.derbala.92', '_blank');
             }, 500);
         }
 
-        // Fallback copy method
         function fallbackCopyText(text) {
             const textArea = document.createElement("textarea");
             textArea.value = text;
@@ -1077,29 +1682,25 @@
             textArea.select();
             try {
                 document.execCommand('copy');
-                showNotification('✅ تم نسخ الرسالة! الصقها في الماسنجر');
+                showNotification('✅ تم نسخ الرسالة!', 'success');
             } catch (err) {
-                showNotification('⚠️ افتح الماسنجر والصق الرسالة يدوياً');
+                showNotification('⚠️ افتح الماسنجر يدوياً', 'error');
             }
             document.body.removeChild(textArea);
         }
 
-        // Show notification
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
+        // Notification
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
             notification.textContent = message;
-            document.body.appendChild(notification);
+            notification.className = `notification ${type} show`;
             
             setTimeout(() => {
-                notification.style.animation = 'slideOutRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 600);
+                notification.classList.remove('show');
             }, 4000);
         }
 
-        // Smooth scroll
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1110,7 +1711,7 @@
             });
         });
 
-        // Header scroll effect
+        // Header Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -1121,6 +1722,9 @@
                 header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
             }
         });
+
+        // Initialize on Load
+        window.addEventListener('load', init);
     </script>
 </body>
 </html>
